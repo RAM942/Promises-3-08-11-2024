@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function that returns a promise
+function fetchData() {
+    return new Promise((resolve, reject) => {
+       
+        setTimeout(() => {
+            const success = prompt("enter true/false ").toLowerCase(); 
+            if (success==="true") {
+                resolve("Data fetched successfully!");
+            } else {
+                reject("Error fetching data.");
+            }
+        }, 1000); // 1 seconds delay
+    });
+}
+
+// Consuming the promise
+fetchData()
+    .then((message) => {
+        console.log(message); // Output: Data fetched successfully!
+    })
+    .catch((error) => {
+        console.error(error); // Output: Error fetching data.
+    });
+
+    </script>
+</body>
+</html>
